@@ -1,0 +1,18 @@
+2025-03-25 19:23:57.318373-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-224]
+2025-03-25 19:23:57.591374-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224]
+2025-03-25 19:24:20.728177-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BOARDS" not found; SQL statement:
+INSERT INTO BOARDS (name) VALUES (?); [42102-224]
+2025-03-29 13:54:05.728103-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224]

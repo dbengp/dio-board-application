@@ -1,0 +1,237 @@
+mar. 29, 2025 1:54:02 PM liquibase.database
+INFORMA합ES: Set default schema name to PUBLIC
+mar. 29, 2025 1:54:04 PM liquibase.changelog
+INFORMA합ES: Reading resource: db/changelog/migrations/db.changelog-202503250938.sql
+mar. 29, 2025 1:54:04 PM liquibase.changelog
+INFORMA합ES: Reading resource: db/changelog/migrations/db.changelog-202503251054.sql
+mar. 29, 2025 1:54:04 PM liquibase.changelog
+INFORMA합ES: Reading resource: db/changelog/migrations/db.changelog-202503251114.sql
+mar. 29, 2025 1:54:04 PM liquibase.changelog
+INFORMA합ES: Reading resource: db/changelog/migrations/db.changelog-202503251405.sql
+mar. 29, 2025 1:54:04 PM liquibase.changelog
+INFORMA합ES: Reading resource: db/changelog/migrations/db.changelog-202503251743.sql
+mar. 29, 2025 1:54:05 PM liquibase.changelog
+INFORMA합ES: Reading from PUBLIC.DATABASECHANGELOG
+mar. 29, 2025 1:54:05 PM liquibase.lockservice
+INFORMA합ES: Successfully acquired change log lock
+mar. 29, 2025 1:54:05 PM liquibase.command
+INFORMA합ES: Using deploymentId: 3267245426
+mar. 29, 2025 1:54:05 PM liquibase.changelog
+INFORMA합ES: Reading from PUBLIC.DATABASECHANGELOG
+Running Changeset: db/changelog/migrations/db.changelog-202503250938.sql::raw::includeAll
+mar. 29, 2025 1:54:05 PM liquibase.changelog
+GRAVE: ChangeSet db/changelog/migrations/db.changelog-202503250938.sql::raw::includeAll encountered an exception.
+liquibase.exception.DatabaseException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224] [Failed SQL: (42001) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:476)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:83)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:185)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1189)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:775)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:131)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:120)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Scope.child(Scope.java:257)
+	at liquibase.Scope.child(Scope.java:261)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:113)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:111)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:220)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1290)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:36)
+	at br.com.dio.Main.main(Main.java:15)
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8947)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	... 40 more
+
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            5
+
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: UPDATE SUMMARY
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: Run:                          0
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: Previously run:               0
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: Filtered out:                 0
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: -------------------------------
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: Total change sets:            5
+mar. 29, 2025 1:54:05 PM liquibase.util
+INFORMA합ES: Update summary generated
+mar. 29, 2025 1:54:05 PM liquibase.command
+INFORMA합ES: Update command encountered an exception.
+mar. 29, 2025 1:54:05 PM liquibase.lockservice
+INFORMA합ES: Successfully released change log lock
+mar. 29, 2025 1:54:05 PM liquibase.command
+INFORMA합ES: Logging exception.
+ERROR: Exception Details
+ERROR: Exception Primary Class:  JdbcSQLSyntaxErrorException
+ERROR: Exception Primary Reason:  Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224]
+ERROR: Exception Primary Source:  H2 2.2.224 (2023-09-17)
+mar. 29, 2025 1:54:05 PM liquibase.command
+INFORMA합ES: Command execution complete
+liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/db.changelog-202503250938.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224] [Failed SQL: (42001) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;]
+	at liquibase.command.CommandScope.execute(CommandScope.java:258)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1290)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:36)
+	at br.com.dio.Main.main(Main.java:15)
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/db.changelog-202503250938.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224] [Failed SQL: (42001) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:148)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:113)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:111)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:220)
+	... 12 more
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/migrations/db.changelog-202503250938.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224] [Failed SQL: (42001) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:819)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$0(ChangeLogIterator.java:131)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.changelog.ChangeLogIterator.lambda$run$1(ChangeLogIterator.java:120)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Scope.child(Scope.java:257)
+	at liquibase.Scope.child(Scope.java:261)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	... 20 more
+Caused by: liquibase.exception.DatabaseException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224] [Failed SQL: (42001) CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:476)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:83)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:185)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1189)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:775)
+	... 35 more
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE BOARDS(\000a    id BIGINT AUTO_INCREMENT PRIMARY KEY,\000a    name VARCHAR(255) NOT NULL\000a) ENGINE[*]=InnoDB;"; expected "identifier"; SQL statement:
+CREATE TABLE BOARDS(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+) ENGINE=InnoDB; [42001-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261)
+	at org.h2.command.Parser.readIdentifier(Parser.java:5533)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8947)
+	at org.h2.command.Parser.parseCreate(Parser.java:6404)
+	at org.h2.command.Parser.parsePrepared(Parser.java:666)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	... 40 more
